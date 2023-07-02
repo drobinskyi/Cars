@@ -1,0 +1,266 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.body {
+    background-color: #f1f5f8;
+}
+
+/* Header */
+.header {
+    min-height: 60px;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: #F5F5F5;
+}
+
+ h1, h4 {
+    color: #27374D;
+}
+
+.search_bar {
+    display: flex;
+}
+
+.search_bar input {
+    width: 200px;
+    height: 32px;
+    border: none;
+    border-radius: 4px 0 0 4px;
+    background-color: #DDE6ED;
+    padding: 0 8px;
+    outline: none;
+}
+
+.search_bar .btn {
+    border-radius: 0 4px 4px 0;
+}
+
+.search_bar .btn:active {
+    background-color: #526D82;
+}
+
+.btn {
+    width: auto;
+    height: 32px;
+    border: none;
+    border-radius: 4px;
+    padding: 0 8px;
+    background-color: #9DB2BF;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.add_new_btn {
+    background-color: #526D82;
+}
+
+.add_new_btn:active {
+    background-color: #27374D;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.pagination {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.pagination span {
+    cursor: pointer;
+}
+
+.current_page {
+    height: 24px;
+    width: 24px;
+    background-color: #9DB2BF;
+    text-align: center;
+    border-radius: 50%;
+}
+
+/* Table */
+table {
+    width: 100%;
+    height: auto;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color:#DDE6ED;
+    text-align: left;
+    position: sticky;
+    top: 0;
+}
+
+th, td {
+    padding-left: 8px;
+} 
+
+tr {
+    height: 40px;
+}
+
+tbody tr {
+    border-bottom: 1px solid #9DB2BF;
+}
+
+/* Table menu */
+.dropdown {
+    display: inline-block;
+    transition: 1s ease-in-out;
+}
+
+.dropdown_child {
+    display: none;
+}
+
+.dropdown_child p {
+    display: block;
+    cursor: pointer;
+}
+
+.dropdown:hover .dropdown_child {
+    display: block;
+}
+
+.dropdown:hover .menu_btn {
+    display: none;
+    transition: 1s ease-in-out;
+}
+
+.edit_btn:hover {
+    color: #11009E;
+    font-weight: 600;;
+}
+
+.delete_btn:hover {
+    color: #B70404;
+    font-weight: 600;
+}
+
+/* Modal windows */
+.modal {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffffdb;
+}
+
+.modal_window {
+    height: auto;
+    width: 400px;
+    margin: 20px auto;
+    padding: 12px 20px;
+    box-shadow: 5px 5px 10px #C8C8C8, -5px -5px 10px #F5F5F5;
+    border-radius: 10px;
+    background-color: #F5F5F5;
+}
+
+.close_modal {
+    display: flex;
+    justify-content: right;
+}
+
+.close_modal_btn {
+    color: #B70404;
+    cursor: pointer;
+    text-align: right;
+    font-size: 14px;
+}
+
+.close_modal_btn:hover {
+    color: #ED2B2A;
+}
+
+.modal_header {
+    text-align: center;
+    margin-bottom: 4px;
+}
+
+.form {  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form_block {
+    width: 100%;
+    display: flex;
+    gap: 8px;
+}
+
+.field {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-bottom: 8px;
+}
+
+.form_block .field {
+    width: calc((100% - 16px) / 3);
+}
+
+.field label {
+    font-size: 12px;
+}
+
+.inp_field {
+    height: 32px;
+    border: none;
+    border-radius: 4px;
+    background-color: #DDE6ED;
+    padding: 0 8px;
+    outline: none;
+}
+
+.inp_field_block {
+    background-color:#bfced8 ;
+}
+
+option {
+    color:#27374D;
+    background-color:#DDE6ED;
+}
+
+.form_btn {
+    margin-top: 4px;
+    background-color: #526D82;
+}
+
+.delete_car_btn {
+    border: none;
+    background: none;
+    font-size: 14px;
+    color: #B70404;
+    cursor: pointer;
+}
+
+.delete_car_btn:hover {
+    color: #ED2B2A;
+}
+
+.form_delete {
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+

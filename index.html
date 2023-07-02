@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Our Cars</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo">
+        <h1>Our Cars</h1>
+      </div>
+      <form class="search_bar" id="search_bar">
+        <input type="text" id="search_input" />
+        <button type="submit" class="btn" id="search_btn">Search</button>
+      </form>
+      <button class="btn add_new_btn" id="add_btn">Add a new car</button>
+    </header>
+    <div class="container">
+      <table>
+        <thead>
+          <tr>
+            <th>Company</th>
+            <th>Model</th>
+            <th>VIN</th>
+            <th>Color</th>
+            <th>Year</th>
+            <th>Price</th>
+            <th>Availability</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody class="table_body"></tbody>
+      </table>
+      <div class="pagination"></div>
+    </div>
+    <div class="modal"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
