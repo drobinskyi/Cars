@@ -16,12 +16,16 @@ const modalWindow = document.querySelector('.modal');
 
 // Запит даних
 async function loadCars() {
-    const server = 'https://myfakeapi.com/api/cars/';
-    const response = await fetch(server);
-    const responseResult = await response.json();
+    try {
+        const server = 'https://myfakeapi.com/api/cars/';
+        const response = await fetch(server);
+        const responseResult = await response.json();
 
-    let cars = responseResult.cars;
-    runStorage(cars);
+        let cars = responseResult.cars;
+        runStorage(cars); 
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 // Перевірка Local Storage
