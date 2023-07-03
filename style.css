@@ -24,6 +24,10 @@
     color: #27374D;
 }
 
+.site_logo {
+    cursor: pointer;
+}
+
 .search_bar {
     display: flex;
 }
@@ -115,6 +119,10 @@ tr {
 
 tbody tr {
     border-bottom: 1px solid #9DB2BF;
+}
+
+.td_availability {
+    cursor: default;
 }
 
 /* Table menu */

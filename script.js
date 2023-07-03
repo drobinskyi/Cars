@@ -4,13 +4,15 @@ const container = document.querySelector('.container');
 // Блок з даними
 const tableBody = document.querySelector('.table_body');
 
+// Логотип сайту
+const logo = document.querySelector('.site_logo');
+
 // Форма пошуку
 const searchBar = document.getElementById('search_bar');
 const searchInput = document.getElementById('search_input');
 
 // Модальне вікно
 const modalWindow = document.querySelector('.modal');
-
 
 // Запит даних
 async function loadCars() {
@@ -68,7 +70,7 @@ function displayList(data, rowPerPage, page) {
             <td>${el.car_color}</td>
             <td>${el.car_model_year}</td>
             <td>${el.price}</td>
-            <td>${el.availability === true ? 'Yes' : 'No'}</td>
+            <td class="td_availability" title="${el.availability === true ? 'Available' : 'Not available'}">${el.availability === true ? 'Yes' : 'No'}</td>
             <td>
               <div class="dropdown">
                 <div class="menu_btn">Action</div>
@@ -90,7 +92,6 @@ function displayPagination(postsData, rowPerPage, currentPage) {
     const paginationEl = document.createElement('div');
     paginationEl.classList.add('pagination');
     container.appendChild(paginationEl);
-
 
     pagesCount = Math.ceil(postsData.length / rowPerPage);
 
@@ -222,7 +223,6 @@ function selectEditCar(carId) {
 
 // Модалка редагування автомобіля
 function editModal(data) {
-    
     modalWindow.style.display = 'flex';
     modalWindow.innerHTML = `
         <div class="modal_window modal_edit">
@@ -269,6 +269,7 @@ function editModal(data) {
             </form>   
         </div>
     `
+
     // Збереження редагованого автомобіля
     const editForm = document.getElementById('form_edit');
     editForm.addEventListener('submit', (e) => {
@@ -307,7 +308,6 @@ function changingCarInStore(car) {
 function selectDeleteCar(carId) {
     let getJson = localStorage.getItem('cars');
     let cars = JSON.parse(getJson);
-
     let result;
     result = cars.filter((val) => {
         return val.id == carId;
@@ -375,5 +375,9 @@ function seachInStorage(string) {
     });
     return results;
 }
+
+logo.addEventListener('click', (e) => {
+    location.reload();   
+})
 
 loadCars();
