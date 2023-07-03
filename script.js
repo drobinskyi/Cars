@@ -29,8 +29,9 @@ function runStorage(data) {
     if (!cars) {
         const json = JSON.stringify(data);
         localStorage.setItem('cars', json);
-        location.reload();
+        location.reload();   
     }
+    showPage(cars);
 }
 
 // Запис нових даних в Local Storage
@@ -40,15 +41,12 @@ function setLocalStorage(data) {
 }
 
 // Виведення однієї сторінки списку автомобілів
-function showPage() {
-    const getJson = localStorage.getItem('cars');
-    const postsData = JSON.parse(getJson);
-
+function showPage(data) {
     let currentPage = 1;
     let rows = 50;
 
-    displayList(postsData, rows, currentPage);
-    displayPagination(postsData, rows, currentPage);
+    displayList(data, rows, currentPage);
+    displayPagination(data, rows, currentPage);
 }
 
 // Виведення списку автомобілів
@@ -190,7 +188,7 @@ addNewCarBtn.addEventListener('click', () => {
         obj.availability = availability;
 
         addingCarToStore(obj);
-        showPage();
+        runStorage();
 
         modalWindow.style.display = 'none';
     })
@@ -283,7 +281,7 @@ function editModal(data) {
         obj.availability = availability;
 
         changingCarInStore(obj);
-        showPage();
+        runStorage();
 
         modalWindow.style.display = 'none';
     })
@@ -338,7 +336,7 @@ function deleteModal(el, cars) {
         cars.splice(carIndex, 1);
 
         setLocalStorage(cars);
-        showPage();
+        runStorage();
         
         modalWindow.style.display = 'none';
     })
@@ -350,33 +348,32 @@ function deleteModal(el, cars) {
     });
 }
 
-
-// Пошук автомобіля
+// Запит пошуку автомобіля
 searchBar.addEventListener('submit', (e) => {
     e.preventDefault();
     const wantedCar = searchInput.value;
     searchInput.value = '';
     let item = [];
     item = seachInStorage(wantedCar);
+    showPage(item);
 })
 
+// Пошук автомобіля в масиві
 function seachInStorage(string) {
-    let getJson = localStorage.getItem('cars');
-    let data = JSON.parse(getJson);
-    console.log(string);
-    console.log(data);
+    let json = localStorage.getItem('cars');
+    let data = JSON.parse(json);
     let results;
     string = string.toUpperCase();
-    // results = postsData.filter(function () {
-    //     let bool = false;
-    //     for (const key in data) {
-    //         let item = data[key];
-    //         console.log(item);
-    //         bool = item.toUpperCase().includes(string);
-    //         if (bool) return bool;     
-    //     }
-    // });    
+
+    results = data.filter((entry) => {
+        let bool = false;
+        for (const key in entry) {
+            let item = String(entry[key]);
+            bool = item.toUpperCase().includes(string);
+            if (bool) return bool;
+        }
+    });
+    return results;
 }
 
 loadCars();
-showPage();
