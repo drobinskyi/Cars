@@ -8,7 +8,7 @@ API to get initial data: [myFakeAPI](https://documenter.getpostman.com/view/5596
 
 This is a car database.\
 You can add cars to the list, edit and delete.\
-Each car object contains the following data:\
+Each car object contains the following data:
 
     - Company
     - Model
